@@ -79,7 +79,7 @@ for x = 0 : (a - 1)
             if (x ~= 0)
                 left_index = cur_index - 1;
                 coe = k / size * area;
-                A(left_index, cur_index) = - coe;
+                A(cur_index, left_index) = - coe;
                 A(cur_index, cur_index) = A(cur_index, cur_index) + coe;
             else
                 coe = h * area;
@@ -89,14 +89,14 @@ for x = 0 : (a - 1)
             if (x ~= (a - 1))
                 right_index = cur_index + 1;
                 coe = k / size * area;
-                A(right_index, cur_index) = - coe;
+                A(cur_index, right_index) = - coe;
                 A(cur_index, cur_index) = A(cur_index, cur_index) + coe;
             end
             % front neighbor
             if (y ~= 0)
                 front_index = cur_index - a;
                 coe = k / size * area;
-                A(front_index, cur_index) = - coe;
+                A(cur_index, front_index) = - coe;
                 A(cur_index, cur_index) = A(cur_index, cur_index) + coe;
             else
                 coe = h * area;
@@ -106,14 +106,14 @@ for x = 0 : (a - 1)
             if (y ~= (b - 1))
                 back_index = cur_index + a;
                 coe = k / size * area;
-                A(back_index, cur_index) = - coe;
+                A(cur_index, back_index) = - coe;
                 A(cur_index, cur_index) = A(cur_index, cur_index) + coe;
             end
             % down neighbor
             if (z ~= 0)
                 down_index = cur_index - a * b;
                 coe = k / size * area;
-                A(down_index, cur_index) = - coe;
+                A(cur_index, down_index) = - coe;
                 A(cur_index, cur_index) = A(cur_index, cur_index) + coe;
             else
                 B(cur_index, 1) = B(cur_index, 1) + heat_from_chip;
@@ -122,7 +122,7 @@ for x = 0 : (a - 1)
             if (z ~= (c - 1))
                 top_index = cur_index +  a * b;
                 coe = k / size * area;
-                A(top_index, cur_index) = - coe;
+                A(cur_index, top_index) = - coe;
                 A(cur_index, cur_index) = A(cur_index, cur_index) + coe;
             else
                 coe = h * area;
@@ -156,18 +156,3 @@ colorbar;
 % slice(x,y,z,v,[],[],zslice)
 % colormap hot;
 % colorbar;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
